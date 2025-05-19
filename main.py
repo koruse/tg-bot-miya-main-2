@@ -15,7 +15,7 @@ async def start(msg: Message):
 
 @dp.message_handler(commands=["help"])
 async def help_cmd(msg: Message):
-    await msg.answer("/start — запуск
+    await msg.answer("/start — запуск бота\n/check — проверить задачи\n/help — помощь")
 /help — помощь
 /todo — добавить задачу")
 
