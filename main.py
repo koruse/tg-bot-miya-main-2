@@ -1,16 +1,19 @@
-
 import os
 import asyncio
-from aiogram import Bot, Dispatcher, types
-from aiogram.types import Message
+from aiogram import Bot, Dispatcher
 from aiogram.enums import ParseMode
 from aiogram.fsm.storage.memory import MemoryStorage
 from aiogram import Router
-from aiogram.utils.markdown import hbold
-from aiogram.types import FSInputFile
+from aiogram.types import Message
+from aiogram.client.default import DefaultBotProperties  # ← вот это важно!
 
 BOT_TOKEN = os.getenv("BOT_TOKEN")
-bot = Bot(token=BOT_TOKEN, default=types.DefaultBotProperties(parse_mode=ParseMode.HTML))
+
+bot = Bot(
+    token=BOT_TOKEN,
+    default=DefaultBotProperties(parse_mode=ParseMode.HTML)
+)
+
 dp = Dispatcher(storage=MemoryStorage())
 router = Router()
 dp.include_router(router)
